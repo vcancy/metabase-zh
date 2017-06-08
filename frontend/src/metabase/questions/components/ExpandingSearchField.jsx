@@ -8,7 +8,7 @@ import cx from "classnames";
 import { Motion, spring } from "react-motion";
 
 import Icon from "metabase/components/Icon";
-
+import zh from "metabase/locale/zh.js"
 const KEYCODE_FORWARD_SLASH = 191; // focus search
 const KEYCODE_ESCAPE = 27; // blur search
 const KEYCODE_ENTER = 13; // execute search
@@ -90,7 +90,7 @@ export default class ExpandingSearchField extends Component {
                         <input
                             ref={(search) => this.searchInput = search}
                             className="input text-bold borderless"
-                            placeholder="Search for a question..."
+                            placeholder={zh["Search for a question..."]}
                             style={Object.assign({}, interpolatingStyle, { fontSize: '1em'})}
                             onFocus={() => this.setState({ active: true })}
                             onBlur={() => this.setState({ active: false })}

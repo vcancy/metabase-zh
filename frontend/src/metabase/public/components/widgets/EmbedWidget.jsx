@@ -11,7 +11,7 @@ import MetabaseAnalytics from "metabase/lib/analytics";
 import EmbedModalContent from "./EmbedModalContent";
 
 import cx from "classnames";
-
+import zh from "metabase/locale/zh.js"
 type Props = {
     className?: string,
     resourceType: string
@@ -29,7 +29,7 @@ export default class EmbedWidget extends Component<*, Props, *> {
                 ref={m => this._modal = m}
                 full
                 triggerElement={
-                    <Tooltip tooltip={`Sharing and embedding`}>
+                    <Tooltip tooltip={zh["Sharing and embedding"]}>
                         <Icon name="share" onClick={() => MetabaseAnalytics.trackEvent("Sharing / Embedding", resourceType, "Sharing Link Clicked") } />
                     </Tooltip>
                 }

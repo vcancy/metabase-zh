@@ -8,7 +8,7 @@ import ClockIcon from "metabase/components/icons/ClockIcon.jsx";
 import CountdownIcon from "metabase/components/icons/CountdownIcon.jsx";
 
 import cx from "classnames";
-
+import zh from "metabase/locale/zh.js"
 const OPTIONS = [
     { name: "Off",        period:    null },
     { name: "1 minute",   period:  1 * 60 },
@@ -27,7 +27,7 @@ export default class RefreshWidget extends Component {
             <PopoverWithTrigger
                 ref="popover"
                 triggerElement={elapsed == null ?
-                    <Tooltip tooltip="Auto-refresh">
+                    <Tooltip tooltip={zh["Auto-refresh"]}>
                         <ClockIcon width={18} height={18} className={className} />
                     </Tooltip>
                 :

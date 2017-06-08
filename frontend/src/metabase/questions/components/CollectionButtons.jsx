@@ -4,7 +4,7 @@ import cx from "classnames";
 
 import Icon from "metabase/components/Icon";
 import ArchiveCollectionWidget from "../containers/ArchiveCollectionWidget";
-
+import zh from "metabase/locale/zh.js"
 const COLLECTION_ICON_SIZE = 64;
 
 const COLLECTION_BOX_CLASSES = "relative block p4 hover-parent hover--visibility cursor-pointer text-centered transition-background";
@@ -94,7 +94,7 @@ const NewCollectionButton = ({ push }) =>
                 />
             </div>
         </div>
-        <h3>New collection</h3>
+        <h3>{zh["New collection"]}</h3>
     </div>
 
 export default CollectionButtons;

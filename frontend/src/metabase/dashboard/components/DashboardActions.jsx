@@ -4,6 +4,7 @@ import Tooltip from "metabase/components/Tooltip";
 import NightModeIcon from "metabase/components/icons/NightModeIcon";
 import FullscreenIcon from "metabase/components/icons/FullscreenIcon";
 import RefreshWidget from "metabase/dashboard/components/RefreshWidget";
+import zh from "metabase/locale/zh.js"
 
 export const getDashboardActions = (
     {
@@ -35,7 +36,7 @@ export const getDashboardActions = (
 
     if (!isEditing && isFullscreen) {
         buttons.push(
-            <Tooltip tooltip={isNightMode ? "Daytime mode" : "Nighttime mode"}>
+            <Tooltip tooltip={isNightMode ? zh["Daytime mode"] : zh["Nighttime mode"]}>
                 <span
                     data-metabase-event={"Dashboard;Night Mode;" + !isNightMode}
                 >
@@ -54,7 +55,7 @@ export const getDashboardActions = (
         // option click to enter fullscreen without making the browser go fullscreen
         buttons.push(
             <Tooltip
-                tooltip={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+                tooltip={isFullscreen ? zh["Exit fullscreen"] : zh["Enter fullscreen"]}
             >
                 <span
                     data-metabase-event={

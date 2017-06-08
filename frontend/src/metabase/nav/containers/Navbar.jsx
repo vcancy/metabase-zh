@@ -13,7 +13,7 @@ import * as Urls from "metabase/lib/urls";
 import ProfileLink from "metabase/nav/components/ProfileLink.jsx";
 
 import { getPath, getContext, getUser } from "../selectors";
-
+import zh from "metabase/locale/zh.js"
 const mapStateToProps = (state, props) => ({
     path:       getPath(state, props),
     context:    getContext(state, props),
@@ -89,11 +89,11 @@ export default class Navbar extends Component {
                     </div>
 
                     <ul className="sm-ml4 flex flex-full text-strong">
-                        <AdminNavItem name="Settings"    path="/admin/settings"     currentPath={this.props.path} />
-                        <AdminNavItem name="People"      path="/admin/people"       currentPath={this.props.path} />
-                        <AdminNavItem name="Data Model"  path="/admin/datamodel"    currentPath={this.props.path} />
-                        <AdminNavItem name="Databases"   path="/admin/databases"    currentPath={this.props.path} />
-                        <AdminNavItem name="Permissions" path="/admin/permissions"  currentPath={this.props.path} />
+                        <AdminNavItem name={zh["Settings"]}    path="/admin/settings"     currentPath={this.props.path} />
+                        <AdminNavItem name={zh["People"]}      path="/admin/people"       currentPath={this.props.path} />
+                        <AdminNavItem name={zh["Data Model"]}  path="/admin/datamodel"    currentPath={this.props.path} />
+                        <AdminNavItem name={zh["Databases"]}   path="/admin/databases"    currentPath={this.props.path} />
+                        <AdminNavItem name={zh["Permissions"]} path="/admin/permissions"  currentPath={this.props.path} />
                     </ul>
 
                     <ProfileLink {...this.props} />
@@ -126,20 +126,20 @@ export default class Navbar extends Component {
                         </Link>
                     </li>
                     <li className="pl3 hide sm-show">
-                        <MainNavLink to="/dashboards" name="控制台" eventName="Dashboards" />
+                        <MainNavLink to="/dashboards" name={zh['Dashboards']}eventName="Dashboards" />
                     </li>
                     <li className="pl1 hide sm-show">
-                        <MainNavLink to="/questions" name="查询面板" eventName="Questions" />
+                        <MainNavLink to="/questions" name={zh['Questions']} eventName="Questions" />
                     </li>
                     <li className="pl1 hide sm-show">
-                        <MainNavLink to="/pulse" name="任务" eventName="Pulses" />
+                        <MainNavLink to="/pulse" name={zh['Pulses']} eventName="Pulses" />
                     </li>
                     <li className="pl1 hide sm-show">
-                        <MainNavLink to="/reference/guide" name="数据表引用关系" eventName="DataReference" />
+                        <MainNavLink to="/reference/guide" name={zh['Data Reference']} eventName="DataReference" />
                     </li>
                     <li className="pl3 hide sm-show">
-                        <Link to={Urls.question()} data-metabase-event={"Navbar;新建查询"} style={BUTTON_PADDING_STYLES.newQuestion} className="NavNewQuestion rounded inline-block bg-white text-brand text-bold cursor-pointer px2 no-decoration transition-all">
-                            New <span>Question</span>
+                        <Link to={Urls.question()} data-metabase-event={"Navbar;New Question"} style={BUTTON_PADDING_STYLES.newQuestion} className="NavNewQuestion rounded inline-block bg-white text-brand text-bold cursor-pointer px2 no-decoration transition-all">
+                            {zh['New Question']}
                         </Link>
                     </li>
                     <li className="flex-align-right transition-background">

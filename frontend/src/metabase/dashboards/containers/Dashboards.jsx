@@ -27,7 +27,7 @@ import type {User} from "metabase/meta/types/User"
 import * as dashboardsActions from "../dashboards";
 import {getDashboardListing} from "../selectors";
 import {getUser} from "metabase/selectors/user";
-
+import zh from "metabase/locale/zh.js"
 const mapStateToProps = (state, props) => ({
     dashboards: getDashboardListing(state),
     user: getUser(state)
@@ -200,9 +200,8 @@ export class Dashboards extends Component {
                                 <EmptyState
                                     message={
                                         <div className="mt4">
-                                            <h3 className="text-grey-5">No results found</h3>
-                                            <p className="text-grey-4">Try adjusting your filter to find what you’re
-                                                looking for.</p>
+                                            <h3 className="text-grey-5">{zh["No results found"]}</h3>
+                                            <p className="text-grey-4">{zh["Try adjusting your filter to find what you’re looking for."]}</p>
                                         </div>
                                     }
                                     image="/app/img/empty_dashboard"

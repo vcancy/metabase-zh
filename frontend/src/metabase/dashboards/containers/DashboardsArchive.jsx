@@ -19,7 +19,7 @@ import type {SetArchivedAction} from "../dashboards";
 import {fetchArchivedDashboards, setArchived} from "../dashboards";
 import {getArchivedDashboards} from "../selectors";
 import {getUserIsAdmin} from "metabase/selectors/user";
-
+import zh from "metabase/locale/zh.js"
 const mapStateToProps = (state, props) => ({
     dashboards: getArchivedDashboards(state),
     isAdmin: getUserIsAdmin(state, props)
@@ -82,7 +82,7 @@ export class Dashboards extends Component {
                         {headerWithBackContainer}
                         <div className="full flex justify-center" style={{marginTop: "75px"}}>
                             <EmptyState
-                                message={<span>No dashboards have been<br />archived yet</span>}
+                                message={<span>{zh["No dashboards have been archived yet"]}</span>}
                                 icon="viewArchive"
                             />
                         </div>
@@ -100,9 +100,8 @@ export class Dashboards extends Component {
                                 <EmptyState
                                     message={
                                         <div className="mt4">
-                                            <h3 className="text-grey-5">No results found</h3>
-                                            <p className="text-grey-4">Try adjusting your filter to find what you’re
-                                                looking for.</p>
+                                            <h3 className="text-grey-5">{zh["No results found"]}</h3>
+                                            <p className="text-grey-4">{zh["Try adjusting your filter to find what you’re looking for."]}</p>
                                         </div>
                                     }
                                     image="/app/img/empty_dashboard"

@@ -20,7 +20,7 @@ import type { Card, CardId, VisualizationSettings } from "metabase/meta/types/Ca
 import type { DashboardWithCards, DashboardId, DashCardId } from "metabase/meta/types/Dashboard";
 import type { RevisionId } from "metabase/meta/types/Revision";
 import type { Parameter, ParameterId, ParameterValues, ParameterOption } from "metabase/meta/types/Parameter";
-
+import zh from "metabase/locale/zh.js"
 type Props = {
     location:               LocationDescriptor,
 
@@ -210,8 +210,8 @@ export default class Dashboard extends Component<*, Props, State> {
                             { dashboard.ordered_cards.length === 0 ?
                                 <div className="absolute z1 top bottom left right flex flex-column layout-centered">
                                     <span className="QuestionCircle">?</span>
-                                    <div className="text-normal mt3 mb1">This dashboard is looking empty.</div>
-                                    <div className="text-normal text-grey-2">Add a question to start making it useful!</div>
+                                    <div className="text-normal mt3 mb1">{zh["This dashboard is looking empty."]}</div>
+                                    <div className="text-normal text-grey-2">{zh["Add a question to start making it useful!"]}</div>
                                 </div>
                                 :
                                 <DashboardGrid

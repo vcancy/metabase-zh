@@ -20,7 +20,7 @@ import { getAllCollections, getAllEntities } from "../selectors";
 import { getUserIsAdmin } from "metabase/selectors/user";
 
 import { replace, push } from "react-router-redux";
-
+import zh from "metabase/locale/zh.js"
 const mapStateToProps = (state, props) => ({
     questions:   getAllEntities(state, props),
     collections: getAllCollections(state, props),
@@ -89,7 +89,7 @@ export default class QuestionIndex extends Component {
                     >
                         <div className="flex align-center">
                             <DisclosureTriangle open={questionsExpanded} />
-                            <h2>Everything Else</h2>
+                            <h2>{zh["Everything Else"]}</h2>
                         </div>
                     </div>
                 }
@@ -114,9 +114,9 @@ const CollectionEmptyState = () =>
     <div className="flex align-center p2 bordered border-med border-brand rounded bg-grey-0 text-brand">
         <Icon name="collection" size={32} className="mr2"/>
         <div className="flex-full">
-            <h3>Create collections for your saved questions</h3>
+            <h3>{zh["Create collections for your saved questions"]}</h3>
             <div className="mt1">
-                Collections help you organize your questions and allow you to decide who gets to see what.
+                {zh["Collections help you organize your questions and allow you to decide who gets to see what."]}
                 {" "}
                 <a href="http://www.metabase.com/docs/latest/administration-guide/06-collections.html" target="_blank">
                     Learn more

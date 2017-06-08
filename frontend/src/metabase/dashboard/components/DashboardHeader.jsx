@@ -27,7 +27,7 @@ import type { Card, CardId } from "metabase/meta/types/Card";
 import type { Parameter, ParameterId, ParameterOption } from "metabase/meta/types/Parameter";
 import type { DashboardWithCards, DashboardId, DashCardId } from "metabase/meta/types/Dashboard";
 import type { Revision, RevisionId } from "metabase/meta/types/Revision";
-
+import zh from "metabase/locale/zh.js"
 type Props = {
     location:               LocationDescriptor,
 
@@ -147,13 +147,13 @@ export default class DashboardHeader extends Component<*, Props, State> {
     getEditingButtons() {
         return [
             <a data-metabase-event="Dashboard;Cancel Edits" key="cancel" className="Button Button--small" onClick={() => this.onCancel()}>
-                Cancel
+                {zh["Cancel"]}
             </a>,
             <ModalWithTrigger
                 key="archive"
                 ref="archiveDashboardModal"
                 triggerClasses="Button Button--small"
-                triggerElement="Archive"
+                triggerElement={zh["Archive"]}
             >
                 <ArchiveDashboardModal
                     dashboard={this.props.dashboard}
@@ -165,10 +165,10 @@ export default class DashboardHeader extends Component<*, Props, State> {
                 key="save"
                 actionFn={() => this.onSave()}
                 className="Button Button--small Button--primary"
-                normalText="Save"
-                activeText="Saving…"
-                failedText="Save failed"
-                successText="Saved"
+                normalText={zh["Save"]}
+                activeText={zh["Saving…"]}
+                failedText={zh["Save failed"]}
+                successText={zh["Saved"]}
             />
         ];
     }
@@ -191,7 +191,7 @@ export default class DashboardHeader extends Component<*, Props, State> {
             // Parameters
             buttons.push(
                 <span>
-                    <Tooltip tooltip="Add a filter">
+                    <Tooltip tooltip={zh["Add a filter"]}>
                         <a
                           key="parameters"
                           className={cx("text-brand-hover", { "text-brand": this.state.modal == "parameters" })}
@@ -218,7 +218,7 @@ export default class DashboardHeader extends Component<*, Props, State> {
                     key="history"
                     ref="dashboardHistory"
                     triggerElement={
-                        <Tooltip tooltip="Revision history">
+                        <Tooltip tooltip={zh["Revision history"]}>
                             <span data-metabase-event={"Dashboard;Revisions"}>
                                 <Icon className="text-brand-hover" name="history" size={16} />
                             </span>
@@ -240,8 +240,8 @@ export default class DashboardHeader extends Component<*, Props, State> {
 
         if (!isFullscreen && !isEditing && canEdit) {
             buttons.push(
-                <Tooltip tooltip="Edit dashboard">
-                    <a data-metabase-event="Dashboard;Edit" key="edit" title="Edit Dashboard Layout" className="text-brand-hover cursor-pointer" onClick={() => this.onEdit()}>
+                <Tooltip tooltip={zh["Edit dashboard"]}>
+                    <a data-metabase-event="Dashboard;Edit" key="edit" title={zh["Edit Dashboard Layout"]} className="text-brand-hover cursor-pointer" onClick={() => this.onEdit()}>
                         <Icon name="pencil" size={16} />
                     </a>
                 </Tooltip>
@@ -255,8 +255,8 @@ export default class DashboardHeader extends Component<*, Props, State> {
                     key="add"
                     ref="addQuestionModal"
                     triggerElement={
-                        <Tooltip tooltip="Add a question">
-                            <span data-metabase-event="Dashboard;Add Card Modal" title="Add a question to this dashboard">
+                        <Tooltip tooltip={zh["Add a question"]}>
+                            <span data-metabase-event="Dashboard;Add Card Modal" title={zh["Add a question to this dashboard"]}>
                                 <Icon className={cx("text-brand-hover cursor-pointer", { "Icon--pulse": isEmpty })} name="add" size={16} />
                             </span>
                         </Tooltip>
@@ -299,7 +299,7 @@ export default class DashboardHeader extends Component<*, Props, State> {
                 isEditing={this.props.isEditing}
                 isEditingInfo={this.props.isEditing}
                 headerButtons={this.getHeaderButtons()}
-                editingTitle="You are editing a dashboard"
+                editingTitle={zh["You are editing a dashboard"]}
                 editingButtons={this.getEditingButtons()}
                 setItemAttributeFn={this.props.setDashboardAttribute}
                 headerModalMessage={this.props.isEditingParameter ?

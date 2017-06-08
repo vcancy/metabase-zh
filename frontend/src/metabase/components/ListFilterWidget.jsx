@@ -6,7 +6,7 @@
 import React, { Component } from "react";
 import Icon from "metabase/components/Icon";
 import PopoverWithTrigger from "./PopoverWithTrigger";
-
+import zh from "metabase/locale/zh.js"
 export type ListFilterWidgetItem = {
     id: string,
     name: string,
@@ -59,7 +59,7 @@ export default class ListFilterWidget extends Component {
                                 name={item.icon}
                             />
                             <h4 className="List-item-title">
-                                {item.name}
+                                {zh[item.name]}
                             </h4>
                         </li>
                     ) }

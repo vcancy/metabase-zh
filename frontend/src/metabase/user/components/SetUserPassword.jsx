@@ -12,7 +12,7 @@ import MetabaseSettings from "metabase/lib/settings";
 
 import _ from "underscore";
 import cx from "classnames";
-
+import zh from "metabase/locale/zh.js"
 export default class SetUserPassword extends Component {
 
     constructor(props, context) {
@@ -92,27 +92,27 @@ export default class SetUserPassword extends Component {
             <div>
                 <form className="Form-new bordered rounded shadowed" onSubmit={this.formSubmitted.bind(this)} noValidate>
                     <FormField fieldName="old_password" formError={formError}>
-                        <FormLabel title="Current password" fieldName="old_password" formError={formError}></FormLabel>
-                        <input ref="oldPassword" type="password" className="Form-input Form-offset full" name="old_password" placeholder="Shhh..." onChange={this.onChange.bind(this)} autoFocus={true} required />
+                        <FormLabel title={zh["Current password"]} fieldName="old_password" formError={formError}></FormLabel>
+                        <input ref="oldPassword" type="password" className="Form-input Form-offset full" name="old_password" placeholder="..." onChange={this.onChange.bind(this)} autoFocus={true} required />
                         <span className="Form-charm"></span>
                     </FormField>
 
                     <FormField fieldName="password" formError={formError}>
-                        <FormLabel title="New password" fieldName="password" formError={formError} ></FormLabel>
-                        <span style={{fontWeight: "400"}} className="Form-label Form-offset">{passwordComplexity}</span>
+                        <FormLabel title={zh["New password"]} fieldName="password" formError={formError} ></FormLabel>
+                        <span style={{fontWeight: "400"}} className="Form-label Form-offset">{zh["passwordComplexity"]}</span>
                         <input ref="password" type="password" className="Form-input Form-offset full" name="password" placeholder="Make sure its secure like the instructions above" onChange={this.onChange.bind(this)} required />
                         <span className="Form-charm"></span>
                     </FormField>
 
                     <FormField fieldName="password2" formError={formError}>
-                        <FormLabel title="Confirm new password" fieldName="password2" formError={formError} ></FormLabel>
+                        <FormLabel title={zh["Confirm new password"]} fieldName="password2" formError={formError} ></FormLabel>
                         <input ref="password2" type="password" className="Form-input Form-offset full" name="password" placeholder="Make sure it matches the one you just entered" required onChange={this.onChange.bind(this)} />
                         <span className="Form-charm"></span>
                     </FormField>
 
                     <div className="Form-actions">
                         <button className={cx("Button", {"Button--primary": valid})} disabled={!valid}>
-                            Save
+                            {zh["Save"]}
                         </button>
                         <FormMessage formError={(updatePasswordResult && !updatePasswordResult.success && !formError) ? updatePasswordResult : undefined} formSuccess={(updatePasswordResult && updatePasswordResult.success) ? updatePasswordResult : undefined} />
                     </div>

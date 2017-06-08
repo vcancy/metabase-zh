@@ -7,7 +7,7 @@ import Icon from "metabase/components/Icon";
 import Tooltip from "metabase/components/Tooltip";
 
 import { setCollectionArchived } from "../collections";
-
+import zh from "metabase/locale/zh.js"
 const mapStateToProps = (state, props) => ({
 })
 
@@ -42,17 +42,17 @@ export default class ArchiveCollectionWidget extends Component {
                 {...this.props}
                 ref="modal"
                 triggerElement={
-                    <Tooltip tooltip="Archive collection">
+                    <Tooltip tooltip={zh["Archive collection"]}>
                         <Icon name="archive" />
                     </Tooltip>
                 }
-                title="Archive this collection?"
+                title={zh["Archive this collection?"]}
                 footer={[
                     <Button onClick={this._onClose}>Cancel</Button>,
                     <Button warning onClick={this._onArchive}>Archive</Button>
                 ]}
             >
-                <div className="px4 pb4">The saved questions in this collection will also be archived.</div>
+                <div className="px4 pb4">{zh["The saved questions in this collection will also be archived."]}</div>
             </ModalWithTrigger>
         );
     }

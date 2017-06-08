@@ -9,19 +9,19 @@ import Modal from "metabase/components/Modal";
 import { reduxForm } from "redux-form";
 
 import { normal, getRandomColor } from "metabase/lib/colors";
-
+import zh from "metabase/locale/zh.js"
 const formConfig = {
     form: 'collection',
     fields: ['id', 'name', 'description', 'color'],
     validate: (values) => {
         const errors = {};
         if (!values.name) {
-            errors.name = "Name is required";
+            errors.name = zh["Name is required"];
         } else if (values.name.length > 100) {
-            errors.name = "Name must be 100 characters or less";
+            errors.name = zh["Name must be 100 characters or less"];
         }
         if (!values.color) {
-            errors.color = "Color is required";
+            errors.color = zh["Color is required"];
         }
         return errors;
     },
@@ -34,16 +34,16 @@ const formConfig = {
 }
 
 export const getFormTitle = ({ id, name }) =>
-    id.value ? name.value : "New collection"
+    id.value ? name.value : zh["New collection"]
 
 export const getActionText = ({ id }) =>
-    id.value ? "Update": "Create"
+    id.value ? zh["Update"]: zh["Create"]
 
 
 export const CollectionEditorFormActions = ({ handleSubmit, invalid, onClose, fields}) =>
     <div>
         <Button className="mr1" onClick={onClose}>
-            Cancel
+            {zh["Cancel"]}
         </Button>
         <Button primary disabled={invalid} onClick={handleSubmit}>
             { getActionText(fields) }
@@ -70,28 +70,28 @@ export class CollectionEditorForm extends Component {
             >
                 <div className="NewForm ml-auto mr-auto mt4 pt2" style={{ width: 540 }}>
                     <FormField
-                        displayName="Name"
+                        displayName={zh["Name"]}
                         {...fields.name}
                     >
                         <Input
                             className="Form-input full"
-                            placeholder="My new fantastic collection"
+                            placeholder={zh["My new fantastic collection"]}
                             autoFocus
                             {...fields.name}
                         />
                     </FormField>
                     <FormField
-                        displayName="Description"
+                        displayName={zh["Description"]}
                         {...fields.description}
                     >
                         <textarea
                             className="Form-input full"
-                            placeholder="It's optional but oh, so helpful"
+                            placeholder={zh["It's optional but oh, so helpful"]}
                             {...fields.description}
                         />
                     </FormField>
                     <FormField
-                        displayName="Color"
+                        displayName={zh["Color"]}
                         {...fields.color}
                     >
                         <ColorPicker {...fields.color} />

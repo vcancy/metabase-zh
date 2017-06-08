@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import FormField from "metabase/components/FormField.jsx";
 import ModalContent from "metabase/components/ModalContent.jsx";
 import Button from "metabase/components/Button.jsx";
-
+import zh from "metabase/locale/zh.js"
 export default class CreateDashboardModal extends Component {
     constructor(props, context) {
         super(props, context);
@@ -75,30 +75,30 @@ export default class CreateDashboardModal extends Component {
         return (
             <ModalContent
                 id="CreateDashboardModal"
-                title="Create dashboard"
+                title={zh["Create dashboard"]}
                 footer={[
                     formError,
-                    <Button onClick={this.props.onClose}>Cancel</Button>,
-                    <Button primary={formReady} disabled={!formReady} onClick={this.createNewDash}>Create</Button>
+                    <Button onClick={this.props.onClose}>{zh["Cancel"]}</Button>,
+                    <Button primary={formReady} disabled={!formReady} onClick={this.createNewDash}>{zh["Create"]}</Button>
                 ]}
                 onClose={this.props.onClose}
             >
                 <form className="Modal-form" onSubmit={this.createNewDash}>
                     <div className="Form-inputs">
                         <FormField
-                            displayName="Name"
+                            displayName={zh["Name"]}
                             fieldName="name"
                             errors={this.state.errors}
                         >
-                            <input className="Form-input full" name="name" placeholder="What is the name of your dashboard?" value={this.state.name} onChange={this.setName} autoFocus />
+                            <input className="Form-input full" name="name" placeholder={zh["What is the name of your dashboard?"]} value={this.state.name} onChange={this.setName} autoFocus />
                         </FormField>
 
                         <FormField
-                            displayName="Description"
+                            displayName={zh["Description"]}
                             fieldName="description"
                             errors={this.state.errors}
                         >
-                            <input className="Form-input full" name="description" placeholder="It's optional but oh, so helpful"  value={this.state.description} onChange={this.setDescription} />
+                            <input className="Form-input full" name="description" placeholder={zh["It's optional but oh, so helpful"]}  value={this.state.description} onChange={this.setDescription} />
                         </FormField>
                     </div>
                 </form>

@@ -16,7 +16,7 @@ import Labels from "./Labels.jsx";
 import CollectionBadge from "./CollectionBadge.jsx";
 
 import * as Urls from "metabase/lib/urls";
-
+import zh from "metabase/locale/zh.js"
 const ITEM_ICON_SIZE = 20;
 
 const Item = ({
@@ -87,7 +87,7 @@ const Item = ({
                             initialCollectionId={collection && collection.id}
                         />
                     </ModalWithTrigger>
-                    <Tooltip tooltip={archived ? "Unarchive" : "Archive"}>
+                    <Tooltip tooltip={archived ? zh["Unarchive"] : zh["Archive"]}>
                         <Icon
                             className="text-light-blue cursor-pointer text-brand-hover transition-color"
                             name={ archived ? "unarchive" : "archive"}
@@ -130,7 +130,7 @@ const ItemBody = pure(({ entity, id, name, description, labels, favorite, collec
                 <CollectionBadge collection={collection} />
             }
             { favorite != null && setFavorited &&
-                <Tooltip tooltip={favorite ? "Unfavorite" : "Favorite"}>
+                <Tooltip tooltip={favorite ? zh["Unfavorite"] : zh["Favorite"]}>
                     <Icon
                         className={cx(
                             "flex cursor-pointer text-brand-hover transition-color",

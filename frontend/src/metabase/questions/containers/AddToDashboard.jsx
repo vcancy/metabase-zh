@@ -8,7 +8,7 @@ import HeaderWithBack from "metabase/components/HeaderWithBack";
 import Collections from "./CollectionList";
 import EntityList from "./EntityList";
 import ExpandingSearchField from "../components/ExpandingSearchField.jsx";
-
+import zh from "metabase/locale/zh.js"
 export default class AddToDashboard extends Component {
     constructor(props, context) {
         super(props, context);
@@ -45,12 +45,12 @@ export default class AddToDashboard extends Component {
                     }
                     { query &&
                         <div className="ml-auto flex align-center">
-                            <h5>Sort by</h5>
+                            <h5>{zh["Sort by"]}</h5>
                             <Button borderless>
-                                Last modified
+                                {zh["Last modified"]}
                             </Button>
                             <Button borderless>
-                                Alphabetical order
+                                {zh["Alphabetical order"]}
                             </Button>
                         </div>
                     }
@@ -100,7 +100,7 @@ export default class AddToDashboard extends Component {
                                             className="mr2"
                                             name="everything"
                                         />
-                                        <h3>Everything else</h3>
+                                        <h3>{zh["Everything else"]}</h3>
                                         <Icon
                                             className="ml-auto"
                                             name="chevronright"

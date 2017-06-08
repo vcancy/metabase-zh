@@ -89,19 +89,19 @@ export default class UpdateUserDetails extends Component {
             <div>
                 <form className="Form-new bordered rounded shadowed" onSubmit={this.formSubmitted.bind(this)} noValidate>
                     <FormField fieldName="first_name" formError={formError}>
-                        <FormLabel title="First name" fieldName="first_name" formError={formError}></FormLabel>
+                        <FormLabel title={zh["First name"]} fieldName="first_name" formError={formError}></FormLabel>
                         <input ref="firstName" className="Form-input Form-offset full" name="name" defaultValue={(user) ? user.first_name : null} placeholder="Johnny" onChange={this.onChange.bind(this)} />
                         <span className="Form-charm"></span>
                     </FormField>
 
                     <FormField fieldName="last_name" formError={formError}>
-                        <FormLabel title="Last name" fieldName="last_name" formError={formError} ></FormLabel>
+                        <FormLabel title={zh["Last name"]} fieldName="last_name" formError={formError} ></FormLabel>
                         <input ref="lastName" className="Form-input Form-offset full" name="name" defaultValue={(user) ? user.last_name : null} placeholder="Appleseed" required onChange={this.onChange.bind(this)} />
                         <span className="Form-charm"></span>
                     </FormField>
 
                     <FormField fieldName="email" formError={formError}>
-                        <FormLabel title={ managed ? "Sign in with Google Email address" : "Email address"} fieldName="email" formError={formError} ></FormLabel>
+                        <FormLabel title={zh["Email address"]} fieldName="email" formError={formError} ></FormLabel>
                         <input
                             ref="email"
                             className={
@@ -122,7 +122,7 @@ export default class UpdateUserDetails extends Component {
 
                     <div className="Form-actions">
                         <button className={cx("Button", {"Button--primary": valid})} disabled={!valid}>
-                            Save
+                            {zh["Save"]}
                         </button>
                         <FormMessage formError={(updateUserResult && !updateUserResult.success) ? updateUserResult : undefined} formSuccess={(updateUserResult && updateUserResult.success) ? updateUserResult : undefined} />
                     </div>

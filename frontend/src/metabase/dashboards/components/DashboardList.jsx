@@ -12,7 +12,7 @@ import type {Dashboard} from "metabase/meta/types/Dashboard";
 import Icon from "metabase/components/Icon";
 import Ellipsified from "metabase/components/Ellipsified.jsx";
 import Tooltip from "metabase/components/Tooltip";
-
+import zh from "metabase/locale/zh.js"
 type DashboardListItemProps = {
     dashboard: Dashboard,
     setFavorited: (dashId: number, favorited: boolean) => void,
@@ -34,7 +34,7 @@ class DashboardListItem extends Component {
         const {id, name, created_at, archived, favorite} = dashboard
 
         const archivalButton =
-            <Tooltip tooltip={archived ? "Unarchive" : "Archive"}>
+            <Tooltip tooltip={archived ? zh["Unarchive"] : zh["Archive"]}>
                 <Icon
                     className="flex cursor-pointer text-light-blue text-brand-hover ml2 archival-button"
                     name={archived ? "unarchive" : "archive"}
@@ -50,7 +50,7 @@ class DashboardListItem extends Component {
             </Tooltip>
 
         const favoritingButton =
-            <Tooltip tooltip={favorite ? "Unfavorite" : "Favorite"}>
+            <Tooltip tooltip={favorite ? zh["Unfavorite"] : zh["Favorite"]}>
                 <Icon
                     className={cx(
                         "flex cursor-pointer ml2 favoriting-button",

@@ -26,7 +26,7 @@ import type { Parameter, ParameterId, ParameterMappingUIOption, ParameterTarget 
 import type { DatabaseId } from "metabase/meta/types/Database";
 
 import type { MappingsByParameter } from "../selectors";
-
+import zh from "metabase/locale/zh.js"
 const makeMapStateToProps = () => {
     const getParameterMappingOptions = makeGetParameterMappingOptions()
     const mapStateToProps = (state, props) => ({

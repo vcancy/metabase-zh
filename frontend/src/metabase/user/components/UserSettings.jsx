@@ -5,7 +5,7 @@ import cx from "classnames";
 
 import SetUserPassword from "./SetUserPassword.jsx";
 import UpdateUserDetails from "./UpdateUserDetails.jsx";
-
+import zh from "metabase/locale/zh.js"
 
 export default class UserSettings extends Component {
 
@@ -44,7 +44,7 @@ export default class UserSettings extends Component {
             <div>
                 <div className="py4 border-bottom">
                     <div className="wrapper wrapper--trim">
-                        <h2 className="text-grey-4">Account settings</h2>
+                        <h2 className="text-grey-4">{zh["Account settings"]}</h2>
                     </div>
                 </div>
                 <div className="mt2 md-mt4 wrapper wrapper--trim">
@@ -53,12 +53,12 @@ export default class UserSettings extends Component {
                             <div className="Grid-cell Grid Grid--fit md-flex-column md-Cell--1of3">
                               <a className={cx(tabClasses['details'])}
                                 onClick={this.onSetTab.bind(this, 'details')}>
-                                User Details
+                                {zh["User Details"]}
                               </a>
 
                               <a className={cx(tabClasses['password'])}
                                 onClick={this.onSetTab.bind(this, 'password')}>
-                                Password
+                                {zh["Password"]}
                               </a>
                             </div>
                         )}
