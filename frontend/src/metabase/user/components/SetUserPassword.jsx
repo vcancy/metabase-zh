@@ -100,13 +100,13 @@ export default class SetUserPassword extends Component {
                     <FormField fieldName="password" formError={formError}>
                         <FormLabel title={zh["New password"]} fieldName="password" formError={formError} ></FormLabel>
                         <span style={{fontWeight: "400"}} className="Form-label Form-offset">{zh["passwordComplexity"]}</span>
-                        <input ref="password" type="password" className="Form-input Form-offset full" name="password" placeholder="Make sure its secure like the instructions above" onChange={this.onChange.bind(this)} required />
+                        <input ref="password" type="password" className="Form-input Form-offset full" name="password" placeholder={zh["Make sure its secure like the instructions above"]} onChange={this.onChange.bind(this)} required />
                         <span className="Form-charm"></span>
                     </FormField>
 
                     <FormField fieldName="password2" formError={formError}>
                         <FormLabel title={zh["Confirm new password"]} fieldName="password2" formError={formError} ></FormLabel>
-                        <input ref="password2" type="password" className="Form-input Form-offset full" name="password" placeholder="Make sure it matches the one you just entered" required onChange={this.onChange.bind(this)} />
+                        <input ref="password2" type="password" className="Form-input Form-offset full" name="password" placeholder={zh["Make sure it matches the one you just entered"]} required onChange={this.onChange.bind(this)} />
                         <span className="Form-charm"></span>
                     </FormField>
 

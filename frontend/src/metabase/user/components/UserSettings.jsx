@@ -53,12 +53,12 @@ export default class UserSettings extends Component {
                             <div className="Grid-cell Grid Grid--fit md-flex-column md-Cell--1of3">
                               <a className={cx(tabClasses['details'])}
                                 onClick={this.onSetTab.bind(this, 'details')}>
-                                {zh["User Details"]}
+                                  {zh["User Details"]}
                               </a>
 
                               <a className={cx(tabClasses['password'])}
                                 onClick={this.onSetTab.bind(this, 'password')}>
-                                {zh["Password"]}
+                                  {zh["Password"]}
                               </a>
                             </div>
                         )}
