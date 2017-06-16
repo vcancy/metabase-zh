@@ -6,7 +6,7 @@ import S from "./Detail.css";
 
 import cx from "classnames";
 import pure from "recompose/pure";
-
+import zh from "metabase/locale/zh.js"
 const Detail = ({ name, description, placeholder, subtitleClass, url, icon, isEditing, field }) =>
     <div className={cx(S.detail)}>
         <div className={S.detailBody}>
@@ -26,7 +26,7 @@ const Detail = ({ name, description, placeholder, subtitleClass, url, icon, isEd
                         // to allow for reinitializing on cancel (see ReferenceGettingStartedGuide.jsx)
                         defaultValue={description}
                     /> :
-                    <span className={subtitleClass}>{description || placeholder || 'No description yet'}</span>
+                    <span className={subtitleClass}>{description || placeholder || zh["No description yet"]}</span>
                 }
                 { isEditing && field.error && field.touched &&
                     <span className="text-error">{field.error}</span>

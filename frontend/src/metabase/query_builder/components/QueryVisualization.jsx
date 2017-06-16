@@ -25,7 +25,7 @@ import * as Urls from "metabase/lib/urls";
 import cx from "classnames";
 import _ from "underscore";
 import moment from "moment";
-
+import zh from "metabase/locale/zh.js"
 const REFRESH_TOOLTIP_THRESHOLD = 30 * 1000; // 30 seconds
 
 export default class QueryVisualization extends Component {
@@ -104,9 +104,9 @@ export default class QueryVisualization extends Component {
                 icon: "table2",
                 message: (
                     <div>
-                        { result.data.rows_truncated != null ? ("Showing first ") : ("Showing ")}
+                        { result.data.rows_truncated != null ? (zh["Showing first "]) : (zh["Showing "])}
                         <strong>{formatNumber(result.row_count)}</strong>
-                        { " " + inflect("row", result.data.rows.length) }
+                        {zh["record"]} 
                     </div>
                 )
             })
@@ -224,6 +224,6 @@ export default class QueryVisualization extends Component {
 
 const VisualizationEmptyState = ({showTutorialLink}) =>
     <div className="flex full layout-centered text-grey-1 flex-column">
-        <h1>If you give me some data I can show you something cool. Run a Query!</h1>
+        <h1>{zh["If you give me some data I can show you something cool. Run a Query!"]}</h1>
         { showTutorialLink && <Link to={Urls.question(null, "?tutorial")} className="link cursor-pointer my2">How do I use this thing?</Link> }
     </div>

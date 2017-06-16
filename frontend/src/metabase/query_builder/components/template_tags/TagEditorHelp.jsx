@@ -1,7 +1,7 @@
 import React from "react";
 
 import Code from "metabase/components/Code.jsx";
-
+import zh from "metabase/locale/zh.js"
 const EXAMPLES = {
     variable: {
         database: null,

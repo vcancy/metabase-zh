@@ -10,7 +10,7 @@ import CollectionActions from "../components/CollectionActions";
 import ArchiveCollectionWidget from "./ArchiveCollectionWidget";
 import EntityList from "./EntityList";
 import { loadCollections } from "../collections";
-
+import zh from "metabase/locale/zh.js"
 import _ from "underscore";
 
 const mapStateToProps = (state, props) => ({
@@ -57,7 +57,7 @@ export default class CollectionPage extends Component {
                 </div>
                 <div className="mt4">
                     <EntityList
-                        defaultEmptyState="No questions have been added to this collection yet."
+                        defaultEmptyState={zh["No questions have been added to this collection yet."]}
                         entityType="cards"
                         entityQuery={{ f: "all", collection: params.collectionSlug, ...location.query }}
                         // use replace when changing sections so back button still takes you back to collections page

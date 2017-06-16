@@ -21,7 +21,7 @@ import { pulseIsValid, cleanPulse } from "metabase/lib/pulse";
 import _ from "underscore";
 import cx from "classnames";
 import { inflect } from "inflection";
-
+import zh from "metabase/locale/zh.js"
 export default class PulseEdit extends Component {
     constructor(props) {
         super(props);
@@ -96,11 +96,11 @@ export default class PulseEdit extends Component {
         return (
             <div className="PulseEdit">
                 <div className="PulseEdit-header flex align-center border-bottom py3">
-                    <h1>{pulse && pulse.id != null ? "Edit" : "New"} pulse</h1>
+                    <h1>{pulse && pulse.id != null ? zh["Edit"] : zh["New"]} pulse</h1>
                     <ModalWithTrigger
                         ref="pulseInfo"
                         className="Modal WhatsAPulseModal"
-                        triggerElement="What's a Pulse?"
+                        triggerElement={zh["What's a Pulse?"]}
                         triggerClasses="text-brand text-bold flex-align-right"
                     >
                         <ModalContent
@@ -108,7 +108,7 @@ export default class PulseEdit extends Component {
                         >
                             <div className="mx4 mb4">
                                 <WhatsAPulse
-                                    button={<button className="Button Button--primary" onClick={() => this.refs.pulseInfo.close()}>Got it</button>}
+                                    button={<button className="Button Button--primary" onClick={() => this.refs.pulseInfo.close()}>{zh["Got it"]}</button>}
                                 />
                             </div>
                         </ModalContent>
@@ -129,7 +129,7 @@ export default class PulseEdit extends Component {
                                     <ModalWithTrigger
                                         ref={"deleteModal"+pulse.id}
                                         triggerClasses="Button Button--danger flex-align-right flex-no-shrink"
-                                        triggerElement="Delete this Pulse"
+                                        triggerElement={zh["Delete this Pulse"]}
                                     >
                                         <DeleteModalWithConfirm
                                             objectType="pulse"
@@ -148,12 +148,12 @@ export default class PulseEdit extends Component {
                     <ActionButton
                         actionFn={this.save}
                         className={cx("Button Button--primary", { "disabled": !isValid })}
-                        normalText={pulse.id != null ? "Save changes" : "Create pulse"}
-                        activeText="Saving…"
-                        failedText="Save failed"
-                        successText="Saved"
+                        normalText={pulse.id != null ? zh["Save changes"] : zh["Create pulse"]}
+                        activeText={zh["Saving…"]}
+                        failedText={zh["Save failed"]}
+                        successText={zh["Saved"]}
                     />
-                    <Link to="/pulse" className="text-bold flex-align-right no-decoration text-brand-hover">Cancel</Link>
+                    <Link to="/pulse" className="text-bold flex-align-right no-decoration text-brand-hover">{zh["Cancel"]}</Link>
                 </div>
             </div>
         );

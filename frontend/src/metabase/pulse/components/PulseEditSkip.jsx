@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import Toggle from "metabase/components/Toggle.jsx";
+import zh from "metabase/locale/zh.js"
 
 export default class PulseEditSkip extends Component {
     static propTypes = {
@@ -18,8 +19,8 @@ export default class PulseEditSkip extends Component {
         const { pulse } = this.props;
         return (
             <div className="py1">
-                <h2>Skip if no results</h2>
-                <p className="mt1 h4 text-bold text-grey-3">Skip a scheduled Pulse if none of its questions have any results.</p>
+                <h2>{zh["Skip if no results"]}</h2>
+                <p className="mt1 h4 text-bold text-grey-3">{zh["Skip a scheduled Pulse if none of its questions have any results."]}</p>
                 <div className="my3">
                     <Toggle value={pulse.skip_if_empty || false} onChange={this.toggle} />
                 </div>

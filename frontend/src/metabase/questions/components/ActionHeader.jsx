@@ -10,7 +10,7 @@ import ModalWithTrigger from "metabase/components/ModalWithTrigger.jsx";
 import MoveToCollection from "../containers/MoveToCollection.jsx";
 
 import LabelPopover from "../containers/LabelPopover.jsx";
-
+import zh from "metabase/locale/zh.js"
 const ActionHeader = ({ visibleCount, selectedCount, allAreSelected, sectionIsArchive, setAllSelected, setArchived, labels }) =>
     <div className={S.actionHeader}>
         <Tooltip tooltip={"Select all " + visibleCount} isEnabled={!allAreSelected}>
@@ -44,7 +44,7 @@ const ActionHeader = ({ visibleCount, selectedCount, allAreSelected, sectionIsAr
                 triggerElement={
                     <span className={S.actionButton} >
                         <Icon name="move" className="mr1" />
-                        Move
+                        {zh["Move"]}
                     </span>
                 }
             >
@@ -52,7 +52,7 @@ const ActionHeader = ({ visibleCount, selectedCount, allAreSelected, sectionIsAr
             </ModalWithTrigger>
             <span className={S.actionButton} onClick={() => setArchived(undefined, !sectionIsArchive, true)}>
                 <Icon name={ sectionIsArchive ? "unarchive" : "archive" }  className="mr1" />
-                { sectionIsArchive ? "Unarchive" : "Archive" }
+                { sectionIsArchive ? zh["Unarchive"] : zh["Archive"] }
             </span>
         </span>
     </div>

@@ -12,7 +12,7 @@ import Popover from "metabase/components/Popover.jsx";
 
 import MetabaseAnalytics from "metabase/lib/analytics";
 import Query from "metabase/lib/query";
-
+import zh from "metabase/locale/zh.js"
 
 export default class ExtendedOptions extends Component {
     state = {
@@ -109,14 +109,14 @@ export default class ExtendedOptions extends Component {
             const remainingExpressions = Object.keys(_.omit(expressions, usedExpressions));
             if ((remainingFieldOptions.count > 0 || remainingExpressions.length > 1) &&
                 (sorts.length === 0 || sorts[sorts.length - 1][0] != null)) {
-                addSortButton = (<AddClauseButton text="Pick a field to sort by" onClick={() => this.props.addQueryOrderBy([null, "ascending"])} />);
+                addSortButton = (<AddClauseButton text={zh["Pick a field to sort by"]} onClick={() => this.props.addQueryOrderBy([null, "ascending"])} />);
             }
         }
 
         if ((sortList && sortList.length > 0) || addSortButton) {
             return (
                 <div className="pb3">
-                    <div className="pb1 h6 text-uppercase text-grey-3 text-bold">Sort</div>
+                    <div className="pb1 h6 text-uppercase text-grey-3 text-bold">{zh["Sort"]}</div>
                     {sortList}
                     {addSortButton}
                 </div>
@@ -171,7 +171,7 @@ export default class ExtendedOptions extends Component {
 
                     { features.limit &&
                         <div>
-                            <div className="mb1 h6 text-uppercase text-grey-3 text-bold">Row limit</div>
+                            <div className="mb1 h6 text-uppercase text-grey-3 text-bold">{zh["Row limit"]}</div>
                             <LimitWidget limit={datasetQuery.query.limit} onChange={(limit) => {
                                 this.props.updateQueryLimit(limit);
                                 this.setState({ isOpen: false })

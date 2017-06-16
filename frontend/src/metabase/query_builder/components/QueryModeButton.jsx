@@ -7,7 +7,7 @@ import { getEngineNativeType, formatJsonQuery } from "metabase/lib/engine";
 import Icon from "metabase/components/Icon.jsx";
 import Modal from "metabase/components/Modal.jsx";
 import Tooltip from "metabase/components/Tooltip.jsx";
-
+import zh from "metabase/locale/zh.js"
 
 export default class QueryModeButton extends Component {
 
@@ -42,13 +42,13 @@ export default class QueryModeButton extends Component {
 
         // maybe switch up the icon based on mode?
         let onClick = null;
-        let tooltip = "Not Supported";
+        let tooltip = zh["Not Supported"];
         if (mode === "query" && allowQueryToNative) {
             onClick = nativeForm ? () => this.setState({isOpen: true}) : () => onSetMode("native");
-            tooltip = nativeForm ? `View the ${nativeQueryName}` : `Switch to ${nativeQueryName}`;
+            tooltip = nativeForm ? zh[`View the ${nativeQueryName}`] : zh[`Switch to ${nativeQueryName}`];
         } else if (mode === "native" && allowNativeToQuery) {
             onClick = () => onSetMode("query");
-            tooltip = "Switch to Builder";
+            tooltip = zh["Switch to Builder"];
         }
 
         return (

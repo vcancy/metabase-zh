@@ -10,7 +10,7 @@ import ChartSettings from "metabase/visualizations/components/ChartSettings.jsx"
 import visualizations, { getVisualizationRaw } from "metabase/visualizations";
 
 import cx from "classnames";
-
+import zh from "metabase/locale/zh.js"
 export default class VisualizationSettings extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -52,7 +52,7 @@ export default class VisualizationSettings extends React.Component {
                     className="GuiBuilder-section-label pl0 Query-label"
                     style={{ marginLeft: 4 }}
                 >
-                    Visualization
+                    {zh["Visualization"]}
                 </span>
                 <PopoverWithTrigger
                     id="VisualizationPopover"

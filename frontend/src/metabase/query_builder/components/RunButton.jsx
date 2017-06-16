@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Icon from "metabase/components/Icon.jsx";
 
 import cx from "classnames";
-
+import zh from "metabase/locale/zh.js"
 export default class RunButton extends Component {
     static propTypes = {
         isRunnable: PropTypes.bool.isRequired,
@@ -18,11 +18,11 @@ export default class RunButton extends Component {
         let { isRunnable, isRunning, isDirty, onRun, onCancel } = this.props;
         let buttonText = null;
         if (isRunning) {
-            buttonText = <div className="flex align-center"><Icon className="mr1" name="close" />Cancel</div>;
+            buttonText = <div className="flex align-center"><Icon className="mr1" name="close" />{zh["Cancel"]}</div>;
         } else if (isRunnable && isDirty) {
-            buttonText = "Get Answer";
+            buttonText = zh["Get Answer"];
         } else if (isRunnable && !isDirty) {
-            buttonText = <div className="flex align-center"><Icon className="mr1" name="refresh" />Refresh</div>;
+            buttonText = <div className="flex align-center"><Icon className="mr1" name="refresh" />{zh["Refresh"]}</div>;
         }
         let actionFn = isRunning ? onCancel : onRun;
         let classes = cx("Button Button--medium circular RunButton ml-auto mr-auto block", {

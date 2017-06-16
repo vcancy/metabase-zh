@@ -28,6 +28,7 @@ import * as Urls from "metabase/lib/urls";
 
 import cx from "classnames";
 import _ from "underscore";
+import zh from "metabase/locale/zh.js"
 
 
 export default class QueryHeader extends Component {
@@ -291,7 +292,7 @@ export default class QueryHeader extends Component {
                 'text-brand-hover': !this.props.uiControls.isShowingTemplateTagsEditor
             });
             buttonSections.push([
-                <Tooltip key="parameterEdititor" tooltip="Variables">
+                <Tooltip key="parameterEdititor" tooltip={zh["Variables"]}>
                     <a className={parametersButtonClasses}>
                         <Icon name="variable" size={16} onClick={this.props.toggleTemplateTagsEditor}></Icon>
                     </a>
@@ -303,7 +304,7 @@ export default class QueryHeader extends Component {
         if (!isNew && !isEditing) {
             // simply adding an existing saved card to a dashboard, so show the modal to do so
             buttonSections.push([
-                <Tooltip key="addtodash" tooltip="Add to dashboard">
+                <Tooltip key="addtodash" tooltip={zh["Add to dashboard"]}>
                     <span data-metabase-event={"QueryBuilder;AddToDash Modal;normal"} className="cursor-pointer text-brand-hover" onClick={() => this.setState({ modal: "add-to-dashboard" })}>
                         <Icon name="addtodash" size={16} />
                     </span>
@@ -312,7 +313,7 @@ export default class QueryHeader extends Component {
         } else if (isNew && isDirty) {
             // this is a new card, so we need the user to save first then they can add to dash
             buttonSections.push([
-                <Tooltip key="addtodashsave" tooltip="Add to dashboard">
+                <Tooltip key="addtodashsave" tooltip={zh["Add to dashboard"]}>
                     <ModalWithTrigger
                         ref="addToDashSaveModal"
                         triggerClasses="h4 text-brand-hover text-uppercase"
@@ -378,7 +379,7 @@ export default class QueryHeader extends Component {
             'text-brand-hover': !this.state.isShowingDataReference
         });
         buttonSections.push([
-            <Tooltip key="dataReference" tooltip="Learn about your data">
+            <Tooltip key="dataReference" tooltip={zh["Learn about your data"]}>
                 <a className={dataReferenceButtonClasses}>
                     <Icon name='reference' size={16} onClick={this.onToggleDataReference}></Icon>
                 </a>
@@ -399,9 +400,9 @@ export default class QueryHeader extends Component {
             <div className="relative">
                 <HeaderBar
                     isEditing={this.props.isEditing}
-                    name={this.props.isNew ? "New question" : this.props.card.name}
+                    name={this.props.isNew ? zh["New question"] : this.props.card.name}
                     description={this.props.card ? this.props.card.description : null}
-                    breadcrumb={(!this.props.card.id && this.props.originalCard) ? (<span className="pl2">started from <a className="link" onClick={this.onFollowBreadcrumb}>{this.props.originalCard.name}</a></span>) : null }
+                    breadcrumb={(!this.props.card.id && this.props.originalCard) ? (<span className="pl2">{zh["started from"]} <a className="link" onClick={this.onFollowBreadcrumb}>{this.props.originalCard.name}</a></span>) : null }
                     buttons={this.getHeaderButtons()}
                     setItemAttributeFn={this.props.onSetCardAttribute}
                     badge={this.props.card.collection &&

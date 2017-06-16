@@ -35,7 +35,7 @@ import { assocIn } from "icepick";
 import DataSelector from './DataSelector.jsx';
 import Icon from "metabase/components/Icon.jsx";
 import Parameters from "metabase/parameters/components/Parameters";
-
+import zh from "metabase/locale/zh.js"
 // This should return an object with information about the mode the ACE Editor should use to edit the query.
 // This object should have 2 properties:
 // *  `mode` :         the ACE Editor mode name, e.g. 'ace/mode/json'
@@ -322,18 +322,18 @@ export default class NativeQueryEditor extends Component {
                 );
             }
         } else {
-            dataSelectors = <span className="p2 text-grey-4">{'This question is written in ' + modeInfo.description + '.'}</span>;
+            dataSelectors = <span className="p2 text-grey-4">{zh['This question is written in '] + modeInfo.description + '.'}</span>;
         }
 
         let editorClasses, toggleEditorText, toggleEditorIcon;
         const hasWritePermission = modeInfo.database && modeInfo.database.native_permissions === "write";
         if (this.state.showEditor) {
             editorClasses = "";
-            toggleEditorText = hasWritePermission ? "Hide Editor" : "Hide Query";
+            toggleEditorText = hasWritePermission ? zh["Hide Editor"] : zh["Hide Query"];
             toggleEditorIcon = "contract";
         } else {
             editorClasses = "hide";
-            toggleEditorText = hasWritePermission ? "Open Editor" : "Show Query";
+            toggleEditorText = hasWritePermission ? zh["Open Editor"] : zh["Show Query"];
             toggleEditorIcon = "expand";
         }
 

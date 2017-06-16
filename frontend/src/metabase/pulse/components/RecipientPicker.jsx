@@ -11,7 +11,7 @@ import MetabaseAnalytics from "metabase/lib/analytics";
 
 import _ from "underscore";
 import cx from "classnames";
-
+import zh from "metabase/locale/zh.js"
 const VALID_EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default class RecipientPicker extends Component {
@@ -169,7 +169,7 @@ export default class RecipientPicker extends Component {
                         ref="input"
                         type="text"
                         className="full h4 text-bold text-default no-focus borderless"
-                        placeholder={recipients.length === 0 ? "Enter email addresses you'd like this data to go to" : null}
+                        placeholder={recipients.length === 0 ? zh["Enter email addresses you'd like this data to go to"] : null}
                         value={this.state.inputValue}
                         autoFocus={this.state.focused}
                         onKeyDown={this.onInputKeyDown}

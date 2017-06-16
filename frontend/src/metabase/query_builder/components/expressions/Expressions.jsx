@@ -7,7 +7,7 @@ import IconBorder from "metabase/components/IconBorder.jsx";
 import Tooltip from "metabase/components/Tooltip.jsx";
 
 import { format } from "metabase/lib/expressions/formatter";
-
+import zh from "metabase/locale/zh.js"
 
 export default class Expressions extends Component {
 
@@ -28,7 +28,7 @@ export default class Expressions extends Component {
         let sortedNames = _.sortBy(_.keys(expressions), _.identity);
         return (
             <div className="pb3">
-                <div className="pb1 h6 text-uppercase text-grey-3 text-bold">Custom fields</div>
+                <div className="pb1 h6 text-uppercase text-grey-3 text-bold">{zh["Custom fields"]}</div>
 
                 { sortedNames && sortedNames.map(name =>
                     <div key={name} className="pb1 text-brand text-bold cursor-pointer flex flex-row align-center justify-between" onClick={() => onEditExpression(name)}>
@@ -46,7 +46,7 @@ export default class Expressions extends Component {
                         <IconBorder borderRadius="3px">
                             <Icon name="add" size={14} />
                         </IconBorder>
-                        <span className="ml1">Add a custom field</span>
+                        <span className="ml1">{zh["Add a custom field"]}</span>
                     </a>
             </div>
         );

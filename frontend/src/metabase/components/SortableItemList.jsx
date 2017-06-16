@@ -5,7 +5,7 @@ import "./SortableItemList.css";
 
 import Icon from "metabase/components/Icon.jsx";
 import Radio from 'metabase/components/Radio.jsx';
-
+import zh from "metabase/locale/zh.js"
 export default class SortableItemList extends Component {
     constructor(props, context) {
         super(props, context);
@@ -28,7 +28,7 @@ export default class SortableItemList extends Component {
 
     render() {
         var items;
-        if (this.state.sort === "Last Modified") {
+        if (this.state.sort === zh["Last Modified"]) {
             items = this.props.items.slice().sort((a, b) => b.updated_at - a.updated_at);
         } else if (this.state.sort === "Alphabetical Order") {
             items = this.props.items.slice().sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
@@ -37,10 +37,10 @@ export default class SortableItemList extends Component {
         return (
             <div className="SortableItemList">
                 <div className="flex align-center px2 pb3 border-bottom">
-                    <h5 className="text-bold text-uppercase text-grey-3 ml2 mt1 mr2">Sort by</h5>
+                    <h5 className="text-bold text-uppercase text-grey-3 ml2 mt1 mr2">{zh["Sort by"]}</h5>
                     <Radio
                         value={this.state.sort}
-                        options={["Last Modified", /*"Most Popular",*/  "Alphabetical Order"]}
+                        options={"Last Modified", /*"Most Popular",*/ "Alphabetical Order"}
                         onChange={(sort) => this.setState({ sort })}
                         optionNameFn={o => o}
                         optionValueFn={o => o}
@@ -58,7 +58,7 @@ export default class SortableItemList extends Component {
                                     : null}
                                     <div className="text-brand-hover">
                                         <h3 className="mb1">{item.name}</h3>
-                                        <h4 className="text-grey-3">{item.description || "No description yet"}</h4>
+                                        <h4 className="text-grey-3">{item.description || zh["No description yet"]}</h4>
                                     </div>
                                 </div>
                                 {item.creator && item.updated_at &&

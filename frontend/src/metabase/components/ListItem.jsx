@@ -9,7 +9,7 @@ import Ellipsified from "./Ellipsified.jsx";
 
 import cx from "classnames";
 import pure from "recompose/pure";
-
+import zh from "metabase/locale/zh.js"
 //TODO: extend this to support functionality required for questions
 const ListItem = ({ index, name, description, placeholder, url, icon }) =>
     <div className={cx(S.item)}>
@@ -26,7 +26,7 @@ const ListItem = ({ index, name, description, placeholder, url, icon }) =>
                 </Ellipsified>
             </div>
             <div className={cx(description ? S.itemSubtitle : S.itemSubtitleLight, { "mt1" : true })}>
-                {description || placeholder || 'No description yet'}
+                {description || placeholder || zh["No description yet"]}
             </div>
         </div>
     </div>

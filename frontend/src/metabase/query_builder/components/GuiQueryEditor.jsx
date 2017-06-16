@@ -16,7 +16,7 @@ import Query from "metabase/lib/query";
 
 import cx from "classnames";
 import _ from "underscore";
-
+import zh from "metabase/locale/zh.js"
 
 export default class GuiQueryEditor extends Component {
     constructor(props, context) {
@@ -99,11 +99,11 @@ export default class GuiQueryEditor extends Component {
             }
 
             if (Query.canAddFilter(this.props.datasetQuery.query)) {
-                addFilterButton = this.renderAdd((filterList ? null : "Add filters to narrow your answer"), null, "addFilterTarget");
+                addFilterButton = this.renderAdd((filterList ? null : zh["Add filters to narrow your answer"]), null, "addFilterTarget");
             }
         } else {
             enabled = false;
-            addFilterButton = this.renderAdd("Add filters to narrow your answer", null, "addFilterTarget");
+            addFilterButton = this.renderAdd(zh["Add filters to narrow your answer"], null, "addFilterTarget");
         }
 
         return (
@@ -180,7 +180,7 @@ export default class GuiQueryEditor extends Component {
             // TODO: move this into AggregationWidget?
             return (
                 <div className="Query-section Query-section-aggregation disabled">
-                    <a className="QueryOption p1 flex align-center">Raw data</a>
+                    <a className="QueryOption p1 flex align-center">{zh["Raw data"]}</a>
                 </div>
             );
         }
@@ -225,7 +225,7 @@ export default class GuiQueryEditor extends Component {
                         tableMetadata={tableMetadata}
                         field={breakout}
                         setField={(field) => this.props.updateQueryBreakout(i, field)}
-                        addButton={this.renderAdd(i === 0 ? "Add a grouping" : null)}
+                        addButton={this.renderAdd(i === 0 ? zh["Add a grouping"] : null)}
                     />
                 );
 
@@ -247,7 +247,7 @@ export default class GuiQueryEditor extends Component {
     renderDataSection() {
         return (
             <div className={"GuiBuilder-section GuiBuilder-data flex align-center arrow-right"}>
-                <span className="GuiBuilder-section-label Query-label">Data</span>
+                <span className="GuiBuilder-section-label Query-label">{zh["Data"]}</span>
                 { this.props.features.data ?
                     <DataSelector
                         ref="dataSection"
@@ -275,7 +275,7 @@ export default class GuiQueryEditor extends Component {
 
         return (
             <div className="GuiBuilder-section GuiBuilder-filtered-by flex align-center" ref="filterSection">
-                <span className="GuiBuilder-section-label Query-label">Filtered by</span>
+                <span className="GuiBuilder-section-label Query-label">{zh["Filtered by"]}</span>
                 {this.renderFilters()}
             </div>
         );
@@ -289,7 +289,7 @@ export default class GuiQueryEditor extends Component {
 
         return (
             <div className="GuiBuilder-section GuiBuilder-view flex align-center px1 pr2" ref="viewSection">
-                <span className="GuiBuilder-section-label Query-label">View</span>
+                <span className="GuiBuilder-section-label Query-label">{zh["View"]}</span>
                 {this.renderAggregation()}
             </div>
         );
@@ -303,7 +303,7 @@ export default class GuiQueryEditor extends Component {
 
         return (
             <div className="GuiBuilder-section GuiBuilder-groupedBy flex align-center px1" ref="viewSection">
-                <span className="GuiBuilder-section-label Query-label">Grouped By</span>
+                <span className="GuiBuilder-section-label Query-label">{zh["Grouped By"]}</span>
                 {this.renderBreakouts()}
             </div>
         );

@@ -14,7 +14,7 @@ import Query from "metabase/lib/query";
 import { cancelable } from "metabase/lib/promise";
 
 import "./SaveQuestionModal.css";
-
+import zh from "metabase/locale/zh.js"
 export default class SaveQuestionModal extends Component {
 
     constructor(props, context) {
@@ -158,7 +158,7 @@ export default class SaveQuestionModal extends Component {
             );
         }
 
-        let title = this.props.addToDashboard ? "First, save your question" : "Save question";
+        let title = this.props.addToDashboard ? zh["First, save your question"] : zh["Save question"];
 
         return (
             <ModalContent
@@ -191,7 +191,7 @@ export default class SaveQuestionModal extends Component {
                                 >
                                     <input
                                         className="Form-input full"
-                                        name="name" placeholder="What is the name of your card?"
+                                        name="name" placeholder={zh["What is the name of your card?"]}
                                         value={this.state.details.name}
                                         onChange={(e) => this.onChange("name", e.target.value)}
                                         autoFocus
@@ -205,7 +205,7 @@ export default class SaveQuestionModal extends Component {
                                     <textarea
                                         className="Form-input full"
                                         name="description"
-                                        placeholder="It's optional but oh, so helpful"
+                                        placeholder={zh["It's optional but oh, so helpful"]}
                                         value={this.state.details.description}
                                         onChange={(e) => this.onChange("description", e.target.value)}
                                     />
@@ -213,7 +213,7 @@ export default class SaveQuestionModal extends Component {
                                 <CollectionList writable>
                                 { (collections) => collections.length > 0 &&
                                     <FormField
-                                        displayName="Which collection should this go in?"
+                                        displayName={zh["Which collection should this go in?"]}
                                         fieldName="collection_id"
                                         errors={this.state.errors}
                                     >

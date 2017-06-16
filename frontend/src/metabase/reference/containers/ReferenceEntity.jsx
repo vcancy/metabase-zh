@@ -18,6 +18,7 @@ import UsefulQuestions from "metabase/reference/components/UsefulQuestions.jsx";
 import FieldsToGroupBy from "metabase/reference/components/FieldsToGroupBy.jsx";
 import Formula from "metabase/reference/components/Formula.jsx";
 import MetricImportantFieldsDetail from "metabase/reference/components/MetricImportantFieldsDetail.jsx";
+import zh from "metabase/locale/zh.js"
 
 import {
     tryUpdateData
@@ -196,7 +197,7 @@ export default class ReferenceEntity extends Component {
                                     id="description"
                                     name="Description"
                                     description={entity.description}
-                                    placeholder="No description yet"
+                                    placeholder={zh["No description yet"]}
                                     isEditing={isEditing}
                                     field={description}
                                 />

@@ -73,7 +73,7 @@ const Item = ({
                     <ModalWithTrigger
                         full
                         triggerElement={
-                            <Tooltip tooltip="Move to a collection">
+                            <Tooltip tooltip={zh["Move to a collection"]}>
                                 <Icon
                                     className="text-light-blue cursor-pointer text-brand-hover transition-color mx2"
                                     name="move"
@@ -146,7 +146,7 @@ const ItemBody = pure(({ entity, id, name, description, labels, favorite, collec
             <Labels labels={labels} />
         </div>
         <div className={cx({ 'text-slate': description }, { 'text-light-blue': !description })}>
-            {description ? description : "No description yet"}
+            {description ? description : zh["No description yet"]}
         </div>
     </div>
 );

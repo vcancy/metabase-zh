@@ -6,7 +6,7 @@ import CardPicker from "./CardPicker.jsx";
 import PulseCardPreview from "./PulseCardPreview.jsx";
 
 import MetabaseAnalytics from "metabase/lib/analytics";
-
+import zh from "metabase/locale/zh.js"
 const SOFT_LIMIT = 10;
 const HARD_LIMIT = 25;
 
@@ -99,8 +99,8 @@ export default class PulseEditCards extends Component {
 
         return (
             <div className="py1">
-                <h2>Pick your data</h2>
-                <p className="mt1 h4 text-bold text-grey-3">Pick up to five questions you'd like to send in this pulse</p>
+                <h2>{zh["Pick your data"]}</h2>
+                <p className="mt1 h4 text-bold text-grey-3">{zh["Pick up to five questions you'd like to send in this pulse"]}</p>
                 <ol className="my3">
                     {cards && pulseCards.map((card, index) =>
                         <li key={index} className="my1">

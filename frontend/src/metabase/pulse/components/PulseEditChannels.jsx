@@ -19,7 +19,7 @@ import MetabaseAnalytics from "metabase/lib/analytics";
 import { channelIsValid } from "metabase/lib/pulse";
 
 import cx from "classnames";
-
+import zh from "metabase/locale/zh.js"
 const CHANNEL_ICONS = {
     email: "mail",
     slack: "slack"
@@ -201,11 +201,11 @@ export default class PulseEditChannels extends Component {
                         actionFn={this.onTestPulseChannel.bind(this, channel)}
                         className={cx("Button", { disabled: !isValid })}
                         normalText={channelSpec.type === "email" ?
-                            "Send email now" :
-                            "Send to  " + channelSpec.name + " now"}
-                        activeText="Sending…"
-                        failedText="Sending failed"
-                        successText={ this.willPulseSkip() ?  "Didn’t send because the pulse has no results." : "Pulse sent"}
+                            zh["Send email now"] :
+                            zh["Send to  "] + channelSpec.name}
+                        activeText={zh["Sending…"]}
+                        failedText={zh["Sending failed"]}
+                        successText={ this.willPulseSkip() ?  zh["Didn’t send because the pulse has no results."] : zh["Pulse sent"]}
                         forceActiveStyle={ this.willPulseSkip() }
                     />
                 </div>
@@ -247,7 +247,7 @@ export default class PulseEditChannels extends Component {
         };
         return (
             <div className="py1 mb4">
-                <h2 className="mb3">Where should this data go?</h2>
+                <h2 className="mb3">{zh["Where should this data go?"]}</h2>
                 <ul className="bordered rounded">
                     {Object.values(channels).map(channelSpec =>
                         this.renderChannelSection(channelSpec)

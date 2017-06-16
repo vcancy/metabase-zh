@@ -8,7 +8,7 @@ import Settings from "metabase/lib/settings";
 import { capitalize } from "metabase/lib/formatting";
 
 import _ from "underscore";
-
+import zh from "metabase/locale/zh.js"
 const HOUR_OPTIONS = _.times(12, (n) => (
     { name: (n === 0 ? 12 : n)+":00", value: n }
 ));
@@ -118,7 +118,7 @@ export default class SchedulePicker extends Component {
                     className="bg-white"
                 />
                 <div className="mt2 h4 text-bold text-grey-3 border-top pt2">
-                    {CHANNEL_NOUN_PLURAL[cs && cs.type] || "Messages"} will be sent at {hour === 0 ? 12 : hour}:00 {amPm ? "PM" : "AM"} {timezone}, your Metabase timezone.
+                    {CHANNEL_NOUN_PLURAL[cs && cs.type] || "Messages"} {zh["will be sent at"]} {hour === 0 ? 12 : hour}:00 {amPm ? "PM" : "AM"} {timezone}.
                 </div>
             </div>
         );
