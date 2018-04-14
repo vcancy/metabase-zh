@@ -5,7 +5,7 @@
 
 ![Metabase Product Screenshot](https://github.com/vcancy/metabase4zh-release/blob/master/metabse4jar.png)
 
-[![Latest Release](https://img.shields.io/github/release/metabase/metabase.svg?label=latest%20release)](https://github.com/vcancy/metabase-zh/releases)
+[![Latest Release](https://img.shields.io/github/release/vcancy/metabase-zh.svg?label=latest%20release)](https://github.com/vcancy/metabase-zh/releases)
 
 ### 支持数据库
 
