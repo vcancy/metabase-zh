@@ -29,9 +29,5 @@
 java -jar metabase.jar
 ```
 
-### Relaase
-
-https://github.com/vcancy/metabase-zh/releases
-
 
 版权归属于 Metabase, Inc.
